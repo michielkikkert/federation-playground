@@ -12,7 +12,7 @@ import { RemoteEntryComponent } from './remote-entry/entry.component';
     RouterModule.forRoot([{
         path: '',
         component: RemoteEntryComponent
-    }], { initialNavigation: 'enabledBlocking' }),
+    }]),
   ],
   providers: [],
   bootstrap: [AppComponent],
