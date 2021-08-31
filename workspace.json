@@ -102,7 +102,7 @@
         "serve-mfe": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["nx serve panel1", "nx serve hostapp"]
+            "commands": ["nx serve panel1", "nx serve hostapp", "npx http-serve apps/config --cors"]
           }
         }
       }
