@@ -1,27 +1,16 @@
 import {
     Compiler,
     Component,
-    ComponentFactory, ComponentRef,
+    ComponentFactory, ComponentRef, Inject,
     Injector,
     NgModuleFactory,
     NgModuleRef,
     OnInit,
     ViewChild, ViewContainerRef
 } from '@angular/core';
+import { ModuleConfig } from '../moduleconfig.model';
+import { MODULES_CONFIG } from '../moduleinjection.token';
 
-
-
-interface ModuleConfig {
-    "panel": {
-        "path": string,
-        "remoteEntry": string,
-        "remoteName": string,
-        "exposedModule": string,
-        "exposedModuleName": string,
-        "moduleImportPath": string,
-        "module": any
-    }
-}
 
 @Component({
     selector: 'federation-root',
@@ -33,7 +22,8 @@ export class AppComponent implements OnInit {
     @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
     constructor(
         private compiler: Compiler,
-        private injector: Injector
+        private injector: Injector,
+        @Inject(MODULES_CONFIG) private config: ModuleConfig
     ) {}
 
     ngOnInit() {
@@ -41,8 +31,7 @@ export class AppComponent implements OnInit {
     }
 
     loadRemote() {
-        const config = (window as any)['moduleConfig'] as ModuleConfig; // Investigate if we can use a Platform Provider to pass this in correctly.
-        const module = config.panel.module[config.panel.exposedModuleName];
+        const module = this.config.panel.module[this.config.panel.exposedModuleName];
         this.compiler
             .compileModuleAsync(module)
             .then((moduleFactory: NgModuleFactory<typeof module>) => {
