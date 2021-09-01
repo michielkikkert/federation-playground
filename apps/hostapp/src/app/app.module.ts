@@ -10,15 +10,14 @@ import { RouterModule } from '@angular/router';
         BrowserModule,
         RouterModule.forRoot(
             [
-                {
-                    path: 'panel1',
-                    loadChildren: () =>
-                        import('panel1/Module').then((m) => m.RemoteEntryModule),
-                },
+                // {
+                //     path: 'panel1',
+                //     loadChildren: () =>
+                //         import('panel1/Module').then((m) => m.RemoteEntryModule),
+                // },
             ],
             {initialNavigation: 'enabledBlocking'}
         ),
-        RouterModule,
         RouterModule,
     ],
   providers: [],

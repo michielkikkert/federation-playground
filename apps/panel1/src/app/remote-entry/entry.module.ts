@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ComponentFactory, ComponentFactoryResolver, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -17,4 +17,10 @@ import { RemoteEntryComponent } from './entry.component';
   ],
   providers: [],
 })
-export class RemoteEntryModule {}
+export class RemoteEntryModule {
+    constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+
+    public resolveComponent(): ComponentFactory<RemoteEntryComponent> {
+        return this.componentFactoryResolver.resolveComponentFactory(RemoteEntryComponent);
+    }
+}
