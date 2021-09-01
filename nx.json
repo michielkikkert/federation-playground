@@ -35,10 +35,6 @@
         },
         "panel2": {
             "tags": []
-        },
-        "panel2-e2e": {
-            "tags": [],
-            "implicitDependencies": ["panel2"]
         }
     }
 }

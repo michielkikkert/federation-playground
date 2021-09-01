@@ -4,7 +4,7 @@ import { loadRemoteModule } from '@angular-architects/module-federation';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { MODULES_CONFIG } from './moduleinjection.token';
-import { ModuleConfig, RemoteModulePanel } from './moduleconfig.model';
+import { ModuleConfig } from './moduleconfig.model';
 
 if (environment.production) {
     enableProdMode();

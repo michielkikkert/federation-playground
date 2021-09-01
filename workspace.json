@@ -315,31 +315,6 @@
                     }
                 }
             }
-        },
-        "panel2-e2e": {
-            "root": "apps/panel2-e2e",
-            "sourceRoot": "apps/panel2-e2e/src",
-            "projectType": "application",
-            "targets": {
-                "e2e": {
-                    "executor": "@nrwl/cypress:cypress",
-                    "options": {
-                        "cypressConfig": "apps/panel2-e2e/cypress.json",
-                        "devServerTarget": "panel2:serve:development"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "panel2:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "executor": "@nrwl/linter:eslint",
-                    "options": {
-                        "lintFilePatterns": ["apps/panel2-e2e/**/*.{js,ts}"]
-                    }
-                }
-            }
         }
     },
     "cli": {
