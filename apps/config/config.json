@@ -1,10 +1,20 @@
 {
-  "panel": {
-    "path": "panel1",
-    "remoteEntry": "http://localhost:4201/remoteEntry.js",
-    "remoteName": "panel1",
-    "exposedModule": "./Module",
-    "exposedModuleName": "RemoteEntryModule",
-    "moduleImportPath": "panel1/Module"
-  }
+    "panels": [
+        {
+            "path": "panel1",
+            "remoteEntry": "http://localhost:4201/remoteEntry.js",
+            "remoteName": "panel1",
+            "exposedModule": "./Module",
+            "exposedModuleName": "RemoteEntryModule",
+            "moduleImportPath": "panel1/Module"
+        },
+        {
+          "path": "panel2",
+          "remoteEntry": "http://localhost:4202/remoteEntry.js",
+          "remoteName": "panel2",
+          "exposedModule": "./Module",
+          "exposedModuleName": "RemoteEntryModule",
+          "moduleImportPath": "panel2/Module"
+        }
+    ]
 }

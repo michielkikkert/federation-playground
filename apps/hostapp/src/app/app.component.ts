@@ -8,7 +8,7 @@ import {
     OnInit,
     ViewChild, ViewContainerRef
 } from '@angular/core';
-import { ModuleConfig } from '../moduleconfig.model';
+import { ModuleConfig, RemoteModulePanel } from '../moduleconfig.model';
 import { MODULES_CONFIG } from '../moduleinjection.token';
 
 
@@ -27,11 +27,15 @@ export class AppComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.loadRemote();
+
+        this.config.panels.forEach( panel => {
+            this.loadRemotePanel(panel);
+        })
+
     }
 
-    loadRemote() {
-        const module = this.config.panel.module[this.config.panel.exposedModuleName];
+    loadRemotePanel(panel: RemoteModulePanel) {
+        const module = panel.module[panel.exposedModuleName];
         this.compiler
             .compileModuleAsync(module)
             .then((moduleFactory: NgModuleFactory<typeof module>) => {
@@ -48,7 +52,5 @@ export class AppComponent implements OnInit {
                     moduleRef.injector
                 ) as ComponentRef<any>;
             });
-
-
     }
 }
