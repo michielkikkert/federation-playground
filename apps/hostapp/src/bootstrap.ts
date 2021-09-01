@@ -13,9 +13,7 @@ if (environment.production) {
 async function main() {
     const response = await fetch('http://127.0.0.1:8080/config.json');
     const config = await response.json() as ModuleConfig;
-    const namespace = 'moduleConfig';
 
-    (window as any)[namespace] = config;
     loadRemoteModule(config.panel).then( module => {
         config.panel.module = module;
         platformBrowserDynamic([{
