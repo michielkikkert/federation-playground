@@ -112,6 +112,47 @@
                 }
             }
         },
+        "mfe-shared": {
+            "projectType": "library",
+            "root": "libs/mfe-shared",
+            "sourceRoot": "libs/mfe-shared/src",
+            "prefix": "federation",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/angular:package",
+                    "outputs": ["dist/libs/mfe-shared"],
+                    "options": {
+                        "project": "libs/mfe-shared/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "libs/mfe-shared/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "libs/mfe-shared/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/mfe-shared"],
+                    "options": {
+                        "jestConfig": "libs/mfe-shared/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/mfe-shared/src/**/*.ts",
+                            "libs/mfe-shared/src/**/*.html"
+                        ]
+                    }
+                }
+            }
+        },
         "panel1": {
             "projectType": "application",
             "root": "apps/panel1",

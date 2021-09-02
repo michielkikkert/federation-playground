@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TestService } from "@kict/mf/mfe-shared";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'federation-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'panel1';
+
+  public data$: Observable<any> = this.shared.data$;
+
+  constructor(private shared: TestService) {
+
+  }
 }

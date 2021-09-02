@@ -5,7 +5,7 @@
             "remoteEntry": "http://localhost:4201/remoteEntry.js",
             "remoteName": "panel1",
             "exposedModule": "./Module",
-            "exposedModuleName": "RemoteEntryModule",
+            "exposedModuleName": "AppModule",
             "moduleImportPath": "panel1/Module"
         },
         {

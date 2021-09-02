@@ -5,6 +5,7 @@ const path = require('path');
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
   /* mapped paths to share */
+  '@kict/mf/mfe-shared'
 ]);
 
 module.exports = {
@@ -26,13 +27,18 @@ module.exports = {
       name: 'panel1',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/panel1/src/app/remote-entry/entry.module.ts',
+        './Module': 'apps/panel1/src/app/app.module.ts',
       },
       shared: {
         '@angular/core': { singleton: true, strictVersion: true },
         '@angular/common': { singleton: true, strictVersion: true },
         '@angular/common/http': { singleton: true, strictVersion: true },
         '@angular/router': { singleton: true, strictVersion: true },
+        '@angular/forms': {
+          singleton: true,
+          strictVersion: true,
+        },
+
         ...sharedMappings.getDescriptors(),
       },
     }),

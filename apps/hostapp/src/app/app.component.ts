@@ -10,6 +10,9 @@ import {
 } from '@angular/core';
 import { ModuleConfig, RemoteModulePanel } from '../moduleconfig.model';
 import { MODULES_CONFIG } from '../moduleinjection.token';
+import { FormControl } from "@angular/forms";
+import { TestService } from "@kict/mf/mfe-shared";
+import { Observable } from "rxjs";
 
 
 @Component({
@@ -20,16 +23,24 @@ import { MODULES_CONFIG } from '../moduleinjection.token';
 export class AppComponent implements OnInit {
     title = 'hostapp';
     @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
+    public dataInput: FormControl = new FormControl('type some!');
+    public data$: Observable<any> = this.shared.data$;
+
     constructor(
         private compiler: Compiler,
         private injector: Injector,
-        @Inject(MODULES_CONFIG) private config: ModuleConfig
+        @Inject(MODULES_CONFIG) private config: ModuleConfig,
+        private shared: TestService
     ) {}
 
     ngOnInit() {
 
         this.config.panels.forEach( panel => {
             this.loadRemotePanel(panel);
+        });
+
+        this.dataInput.valueChanges.subscribe( change => {
+            this.shared.setData(change);
         })
 
     }

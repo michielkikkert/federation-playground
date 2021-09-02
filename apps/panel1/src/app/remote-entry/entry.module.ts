@@ -2,11 +2,13 @@ import { ComponentFactory, ComponentFactoryResolver, NgModule } from '@angular/c
 import { BrowserModule } from '@angular/platform-browser';
 
 import { RemoteEntryComponent } from './entry.component';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [RemoteEntryComponent],
   imports: [
     BrowserModule,
+    CommonModule
   ],
   providers: [],
 })
