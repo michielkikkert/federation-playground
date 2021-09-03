@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from "@angular/core";
+import { Observable } from "rxjs";
+import { TestService } from "@kict/mfe-shared";
 
 @Component({
     selector: 'federation-panel2-entry',
@@ -15,4 +17,12 @@ import { Component } from '@angular/core';
         `,
     ],
 })
-export class RemoteEntryComponent {}
+export class RemoteEntryComponent {
+
+  @Input() public incoming$!: Observable<any>;
+
+  constructor(private shared: TestService) {
+      console.log(shared.getValue());
+  }
+
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { TestService } from "@kict/mfe-shared";
 import { Observable } from "rxjs";
 import { startWith } from "rxjs/operators";
@@ -11,7 +11,9 @@ import { startWith } from "rxjs/operators";
 export class AppComponent implements OnInit {
   title = 'panel1';
 
-  public data$: Observable<any> = this.shared.data$.pipe(startWith(this.shared.getValue()));
+  public data$!: Observable<any>;
+
+  @Input() public incoming$!: Observable<any>;
 
   constructor(private shared: TestService) {
 

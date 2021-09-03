@@ -62,6 +62,7 @@ export class AppComponent implements OnInit {
                     undefined,
                     moduleRef.injector
                 ) as ComponentRef<any>;
+                instance.incoming$ = this.data$;
             });
     }
 }
