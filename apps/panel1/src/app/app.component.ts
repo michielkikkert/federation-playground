@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TestService } from "@kict/mf/mfe-shared";
+import { TestService } from "@kict/mfe-shared";
 import { Observable } from "rxjs";
+import { startWith } from "rxjs/operators";
 
 @Component({
   selector: 'federation-root',
@@ -10,7 +11,7 @@ import { Observable } from "rxjs";
 export class AppComponent {
   title = 'panel1';
 
-  public data$: Observable<any> = this.shared.data$;
+  public data$: Observable<any> = this.shared.data$.pipe(startWith(this.shared.getValue()));
 
   constructor(private shared: TestService) {
 

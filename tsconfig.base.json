@@ -14,9 +14,7 @@
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
-        "paths": {
-            "@kict/mf/mfe-shared": ["libs/mfe-shared/src/index.ts"]
-        }
+        "paths": {}
     },
     "exclude": ["node_modules", "tmp"]
 }

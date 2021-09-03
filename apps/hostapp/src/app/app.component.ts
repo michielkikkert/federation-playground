@@ -10,8 +10,7 @@ import {
 } from '@angular/core';
 import { ModuleConfig, RemoteModulePanel } from '../moduleconfig.model';
 import { MODULES_CONFIG } from '../moduleinjection.token';
-import { FormControl } from "@angular/forms";
-import { TestService } from "@kict/mf/mfe-shared";
+import { TestService } from "@kict/mfe-shared";
 import { Observable } from "rxjs";
 
 
@@ -23,7 +22,6 @@ import { Observable } from "rxjs";
 export class AppComponent implements OnInit {
     title = 'hostapp';
     @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
-    public dataInput: FormControl = new FormControl('type some!');
     public data$: Observable<any> = this.shared.data$;
 
     constructor(
@@ -39,10 +37,12 @@ export class AppComponent implements OnInit {
             this.loadRemotePanel(panel);
         });
 
-        this.dataInput.valueChanges.subscribe( change => {
-            this.shared.setData(change);
-        })
+        this.shared.setData('App OnInit');
+    }
 
+    setRandom() {
+        const rand = Math.random();
+        this.shared.setData(rand);
     }
 
     loadRemotePanel(panel: RemoteModulePanel) {

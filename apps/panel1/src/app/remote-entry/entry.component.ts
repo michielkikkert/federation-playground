@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TestService } from "@kict/mf/mfe-shared";
+import { TestService } from "@kict/mfe-shared";
 
 @Component({
   selector: 'federation-panel1-entry',

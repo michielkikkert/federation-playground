@@ -1,6 +1,6 @@
 {
-    "name": "@kict/mf/mfe-shared",
-    "version": "0.0.1",
+    "name": "@kict/mfe-shared",
+    "version": "0.0.2",
     "peerDependencies": {
         "@angular/common": "^12.1.0",
         "@angular/core": "^12.1.0"

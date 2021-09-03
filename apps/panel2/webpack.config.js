@@ -5,6 +5,7 @@ const path = require('path');
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(path.join(__dirname, '../../tsconfig.base.json'), [
     /* mapped paths to share */
+  '@kict/mfe-shared'
 ]);
 
 module.exports = {
@@ -36,6 +37,7 @@ module.exports = {
                     strictVersion: true,
                 },
                 '@angular/router': { singleton: true, strictVersion: true },
+                '@kict/mfe-shared': { singleton: true, strictVersion: true },
                 ...sharedMappings.getDescriptors(),
             },
         }),
