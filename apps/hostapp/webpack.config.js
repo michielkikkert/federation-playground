@@ -24,10 +24,7 @@ module.exports = {
     },
     plugins: [
         new ModuleFederationPlugin({
-            remotes: {
-                // panel2: 'panel2@http://localhost:4202/remoteEntry.js',
-                // panel1: 'panel1@http://localhost:4201/remoteEntry.js',
-            },
+            remotes: {},
             shared: {
                 '@angular/core': { singleton: true, strictVersion: true },
                 '@angular/common': { singleton: true, strictVersion: true },
