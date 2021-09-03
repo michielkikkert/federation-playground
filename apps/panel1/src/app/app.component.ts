@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import { TestService } from "@kict/mfe-shared";
 import { Observable } from "rxjs";
 import { startWith } from "rxjs/operators";
@@ -8,7 +8,7 @@ import { startWith } from "rxjs/operators";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'panel1';
 
   public data$: Observable<any> = this.shared.data$.pipe(startWith(this.shared.getValue()));
@@ -16,4 +16,14 @@ export class AppComponent {
   constructor(private shared: TestService) {
 
   }
+
+  ngOnInit() {
+     console.log('data:', this.shared.getValue());
+  }
+
+  getData() {
+    console.log('data:', this.shared.getValue());
+  }
+
+
 }
