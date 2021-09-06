@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
         private shared: TestService
     ) {}
 
-    ngOnInit() {
+    async ngOnInit() {
 
         this.config.panels.forEach( panel => {
             this.loadRemotePanel(panel);
@@ -62,7 +62,6 @@ export class AppComponent implements OnInit {
                     undefined,
                     moduleRef.injector
                 ) as ComponentRef<any>;
-                instance.incoming$ = this.data$;
             });
     }
 }
