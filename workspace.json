@@ -265,7 +265,7 @@
                     "executor": "@nrwl/angular:webpack-browser",
                     "outputs": ["{options.outputPath}"],
                     "options": {
-                        "outputPath": "dist/apps/panel2",
+                        "outputPath": "dist/apps/remotes/panel2",
                         "index": "apps/panel2/src/index.html",
                         "main": "apps/panel2/src/main.ts",
                         "polyfills": "apps/panel2/src/polyfills.ts",

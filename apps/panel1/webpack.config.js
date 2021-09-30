@@ -41,6 +41,25 @@ module.exports = {
         ...sharedMappings.getDescriptors(),
       },
     }),
+    new ModuleFederationPlugin({
+      name: 'panel1_2',
+      filename: 'remoteEntry2.js',
+      exposes: {
+        './Module': 'apps/panel1/src/app/remote-entry-2/entry.module',
+      },
+      shared: {
+        '@angular/core': { singleton: true, strictVersion: true },
+        '@angular/common': { singleton: true, strictVersion: true },
+        '@angular/common/http': { singleton: true, strictVersion: true },
+        '@angular/router': { singleton: true, strictVersion: true },
+        '@angular/forms': {
+          singleton: true,
+          strictVersion: true,
+        },
+        '@kict/mfe-shared': { singleton: true, strictVersion: true },
+        ...sharedMappings.getDescriptors(),
+      },
+    }),
     sharedMappings.getPlugin(),
   ],
 };

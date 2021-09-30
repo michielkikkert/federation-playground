@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
 
     async ngOnInit() {
 
+      console.log(this.config);
+
         this.config.panels.forEach( panel => {
             this.loadRemotePanel(panel);
         });

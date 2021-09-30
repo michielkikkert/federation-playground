@@ -9,12 +9,12 @@
             "moduleImportPath": "panel1/Module"
         },
         {
-          "path": "panel2",
-          "remoteEntry": "http://localhost:4202/remoteEntry.js",
-          "remoteName": "panel2",
+          "path": "panel1_2",
+          "remoteEntry": "http://localhost:4201/remoteEntry2.js",
+          "remoteName": "panel1_2",
           "exposedModule": "./Module",
           "exposedModuleName": "RemoteEntryModule",
-          "moduleImportPath": "panel2/Module"
+          "moduleImportPath": "panel1_2/Module"
         }
     ]
 }

@@ -14,6 +14,8 @@ async function main() {
     const response = await fetch('http://127.0.0.1:8080/config.json');
     const config = (await response.json()) as ModuleConfig;
 
+    console.log({config});
+
     for (let i = 0; i < config.panels.length; i++) {
         config.panels[i].module = await loadRemoteModule(config.panels[i]);
     }
